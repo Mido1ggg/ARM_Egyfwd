@@ -1,35 +1,40 @@
 /**********************************************************************************************************************
+
  *  FILE DESCRIPTION
  *  -------------------------------------------------------------------------------------------------------------------
- *         File:  Std_Types.h
- *    Component:  -
- *       Module:  -
+ *         File:  DIO.h
+ *       Module:  DIO
  *
- *  Description:  Provision of Standard Types
- *
+ *  Description:  header file for DIO Module    
+ *  
  *********************************************************************************************************************/
-
-
-
-#ifndef STD_TYPES_H
-#define STD_TYPES_H
+#ifndef DIO_H
+#define DIO_H
 
 /**********************************************************************************************************************
  * INCLUDES
  *********************************************************************************************************************/
+#include "Std_Types.h"
 
-# include "Platform_Types.h"
-# include "Compiler.h"
 
 /**********************************************************************************************************************
  *  GLOBAL CONSTANT MACROS
  *********************************************************************************************************************/
+#define GPIO_PORT_F_Data 0x400253FC
 
-# define STD_HIGH     1 /* Physical state 5V or 3.3V */
-# define STD_LOW      0 /* Physical state 0V */
+#define SYSCTL_RCGCGPIO_R 		(*((volatile uint32 *)0x400FE608))
+#define GPIO_PORTF_LOCK_R			(*((volatile uint32 *)0x40025520))
+#define GPIO_PORTF_CR_R 			(*((volatile uint32 *)0x40025524))
+#define GPIO_PORTF_AFSEL_R		(*((volatile uint32 *)0x40025420))
+#define GPIO_PORTF_PCTL_R			(*((volatile uint32 *)0x4002552C))
+#define GPIO_PORTF_AMSEL_R		(*((volatile uint32 *)0x40025528))
+#define GPIO_PORTF_DIR_R			(*((volatile uint32 *)0x40025400))
+#define GPIO_PORTF_DEN_R			(*((volatile uint32 *)0x4002551C))
+#define GPIO_PORTF_PUR_R			(*((volatile uint32 *)0x40025510))
+/**********************************************************************************************************************
+ *  GLOBAL FUNCTION MACROS
+ *********************************************************************************************************************/
 
-# define STD_ON       1
-# define STD_OFF      0
 
 /**********************************************************************************************************************
  *  GLOBAL DATA TYPES AND STRUCTURES
@@ -45,8 +50,12 @@
  *  GLOBAL FUNCTION PROTOTYPES
  *********************************************************************************************************************/
 
+ void GPIO_PORTF_Init(void);
+ void setPin(int x , int y);
+ void toggelPin(int x , int y);
+ 
+#endif  /* DIO_H */
 
-#endif /* STD_TYPES_H */
 /**********************************************************************************************************************
- *  END OF FILE: Std_Types.h
+ *  END OF FILE: DIO.h
  *********************************************************************************************************************/

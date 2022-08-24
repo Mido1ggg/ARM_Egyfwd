@@ -25,7 +25,7 @@ typedef struct
     uint32          :3;
     uint32 RETBASE  :1;
     uint32 VECPEND  :3;
-    uint32 VECPEND  :4;
+    uint32 				  :4;
     uint32          :2;
     uint32 ISRPEND  :1;
     uint32 ISRPRE   :1;
@@ -45,12 +45,13 @@ typedef union
 
 
 
+
 /**********************************************************************************************************************
  *  GLOBAL CONSTANT MACROS
  *********************************************************************************************************************/
-#define CORTEXM4_PERI_BASE_ADDRESS             0xE000E000
-#define APINT                                  *((volatile uint32*)(CORTEXM4_PERI_BASE_ADDRESS+0xD0C))
-#define INTCTRL                                *((volatile INTCTRL_Tag*)(CORTEXM4_PERI_BASE_ADDRESS+0xD04))
+#define CORTEXM4_PERI_BASE_ADDRESS_R             0xE000E000
+#define APINT_R                                  *((volatile uint32*)(CORTEXM4_PERI_BASE_ADDRESS+0xD0C))
+#define INTCTRL_R                                *((volatile INTCTRL_Tag*)(CORTEXM4_PERI_BASE_ADDRESS+0xD04))
 
 /**********************************************************************************************************************
  *  GLOBAL DATA PROTOTYPES
